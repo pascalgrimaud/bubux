@@ -6,4 +6,10 @@
   <packaging>pom</packaging>
   <name>bubux</name>
   <description>Projet prototype</description>
+  <modules>
+  	<module>bubux-commun</module>
+  	<module>bubux-persistance</module>
+  	<module>bubux-service</module>
+  	<module>bubux-web</module>
+  </modules>
 </project>
