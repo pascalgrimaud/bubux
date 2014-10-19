@@ -32,6 +32,11 @@
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- Struts -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>bubux-${project.version}</finalName>

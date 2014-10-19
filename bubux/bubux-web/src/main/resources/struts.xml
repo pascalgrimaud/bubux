@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 
+	<constant name="struts.devMode" value="true" />
+ 	-->
+	<package name="bubux-default" extends="struts-default">
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+	</package>
+	
+	<package name="accueil" namespace="/" extends="bubux-default">
+		<action name="accueil" class="fr.pgr.bubux.web.actions.accueil.AccueilAction">
+			<param name="statut">accueil</param>
+			<result name="success">/accueil.jsp</result>
+		</action>
+	</package>
+</struts>

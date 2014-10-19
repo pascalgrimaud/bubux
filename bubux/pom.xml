@@ -9,6 +9,7 @@
 	<description>Projet prototype</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<bubux.struts2.version>2.3.16.3</bubux.struts2.version>
 	</properties>
 	<modules>
 		<module>bubux-commun</module>
@@ -18,7 +19,12 @@
 	</modules>
 	<dependencyManagement>
 		<dependencies>
-
+			<!-- Struts -->
+			<dependency>
+				<groupId>org.apache.struts</groupId>
+				<artifactId>struts2-core</artifactId>
+				<version>${bubux.struts2.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 </project>
