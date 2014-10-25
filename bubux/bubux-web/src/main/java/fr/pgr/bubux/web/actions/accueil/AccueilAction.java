@@ -28,15 +28,23 @@ public class AccueilAction extends GenericAction implements ServletRequestAware 
 	private TestBO testBO;
 
 	/**
+	 * testVariable
+	 */
+	private String testVariable;
+
+	/**
 	 * Méthode par défaut
 	 */
 	@Override
 	public String execute() {
-		System.out.println("hello ici !");
-
-		String test = testBO.recupererNomTest();
-		System.out.println("test=" + test);
-
+		return SUCCESS;
+	}
+	
+	/**
+	 * Méthode par défaut
+	 */
+	public String testService() {
+		testVariable = testBO.recupererNomTest();
 		return SUCCESS;
 	}
 
@@ -63,6 +71,21 @@ public class AccueilAction extends GenericAction implements ServletRequestAware 
 	 */
 	public void setTestBO(TestBO testBO) {
 		this.testBO = testBO;
+	}
+
+	/**
+	 * @return the testVariable
+	 */
+	public String getTestVariable() {
+		return testVariable;
+	}
+
+	/**
+	 * @param testVariable
+	 *            the testVariable to set
+	 */
+	public void setTestVariable(String testVariable) {
+		this.testVariable = testVariable;
 	}
 
 }

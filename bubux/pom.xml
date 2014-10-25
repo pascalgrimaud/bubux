@@ -31,6 +31,12 @@
 				<artifactId>struts2-spring-plugin</artifactId>
 				<version>${bubux.struts2.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.apache.struts</groupId>
+				<artifactId>struts2-tiles-plugin</artifactId>
+				<version>${bubux.struts2.version}</version>
+			</dependency>
+
 			<!-- Spring -->
 			<dependency>
 				<groupId>org.springframework</groupId>
