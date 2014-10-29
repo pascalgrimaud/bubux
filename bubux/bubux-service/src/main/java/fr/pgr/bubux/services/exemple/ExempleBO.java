@@ -14,4 +14,12 @@ public interface ExempleBO {
 	 * @return nom de test
 	 */
 	public String recupererNomTest();
+
+	/**
+	 * Méthode pour inverser une chaine de caractères
+	 * 
+	 * @param entree
+	 * @return retourne la chaine de caractères inversées
+	 */
+	public String retourneString(String entree);
 }

@@ -16,4 +16,8 @@ public class ExempleBOImpl implements ExempleBO {
 	public String recupererNomTest() {
 		return "coucou";
 	}
+
+	public String retourneString(String entree) {
+		return (new StringBuilder(entree)).reverse().toString();
+	}
 }
