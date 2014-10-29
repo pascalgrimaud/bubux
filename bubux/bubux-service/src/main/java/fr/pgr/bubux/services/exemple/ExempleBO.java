@@ -1,13 +1,13 @@
 /**
  * 
  */
-package fr.pgr.bubux.services.test;
+package fr.pgr.bubux.services.exemple;
 
 /**
  * @author Ibu
  *
  */
-public interface TestBO {
+public interface ExempleBO {
 	/**
 	 * Méthode pour récupérer un nom de test
 	 * 

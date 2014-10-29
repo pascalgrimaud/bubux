@@ -1,21 +1,18 @@
 /**
  * 
  */
-package fr.pgr.bubux.services.test.impl;
+package fr.pgr.bubux.services.exemple.impl;
 
 import org.springframework.stereotype.Service;
 
-import fr.pgr.bubux.services.test.TestBO;
+import fr.pgr.bubux.services.exemple.ExempleBO;
 
 /**
  * @author Ibu
  *
  */
 @Service
-public class TestBOImpl implements TestBO {
-	/**
-	 * {@inheritDoc}
-	 */
+public class ExempleBOImpl implements ExempleBO {
 	public String recupererNomTest() {
 		return "coucou";
 	}

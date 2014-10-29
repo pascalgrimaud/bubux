@@ -14,9 +14,9 @@
 	width="304" height="236">
 
 <s:if test="testVariable != null">
-	<h2>Service testBO</h2>
+	<h2>Service exempleBO</h2>
 	<p>
-		Variable r&eacute;cup&eacute;r&eacute;e du service testBO :
+		Variable r&eacute;cup&eacute;r&eacute;e du service exempleBO :
 		<s:property value="testVariable" />
 	</p>
 </s:if>

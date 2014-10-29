@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import fr.pgr.bubux.services.test.TestBO;
+import fr.pgr.bubux.services.exemple.ExempleBO;
 import fr.pgr.bubux.web.actions.GenericAction;
 
 /**
@@ -22,10 +22,10 @@ public class AccueilAction extends GenericAction implements ServletRequestAware 
 	private static final long serialVersionUID = -4038754750091135927L;
 
 	/**
-	 * Service testBO
+	 * Service exempleBO
 	 */
 	@Autowired
-	private TestBO testBO;
+	private ExempleBO exempleBO;
 
 	/**
 	 * testVariable
@@ -39,12 +39,12 @@ public class AccueilAction extends GenericAction implements ServletRequestAware 
 	public String execute() {
 		return SUCCESS;
 	}
-	
+
 	/**
 	 * Méthode par défaut
 	 */
 	public String testService() {
-		testVariable = testBO.recupererNomTest();
+		testVariable = exempleBO.recupererNomTest();
 		return SUCCESS;
 	}
 
@@ -59,18 +59,18 @@ public class AccueilAction extends GenericAction implements ServletRequestAware 
 	}
 
 	/**
-	 * @return the testBO
+	 * @return the exempleBO
 	 */
-	public TestBO getTestBO() {
-		return testBO;
+	public ExempleBO getExempleBO() {
+		return exempleBO;
 	}
 
 	/**
-	 * @param testBO
-	 *            the testBO to set
+	 * @param exempleBO
+	 *            the exempleBO to set
 	 */
-	public void setTestBO(TestBO testBO) {
-		this.testBO = testBO;
+	public void setExempleBO(ExempleBO exempleBO) {
+		this.exempleBO = exempleBO;
 	}
 
 	/**
