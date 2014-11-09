@@ -13,10 +13,10 @@
 <img src="images/ibu.jpg" class="img-responsive img-circle" alt="ibu"
 	width="304" height="236">
 
-<s:if test="testVariable != null">
+<s:if test="nom != null">
 	<h2>Service exempleBO</h2>
 	<p>
 		Variable r&eacute;cup&eacute;r&eacute;e du service exempleBO :
-		<s:property value="testVariable" />
+		<s:property value="nom" />
 	</p>
 </s:if>

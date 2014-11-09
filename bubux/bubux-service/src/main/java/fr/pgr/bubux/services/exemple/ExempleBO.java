@@ -22,4 +22,12 @@ public interface ExempleBO {
 	 * @return retourne la chaine de caractères inversées
 	 */
 	public String retourneString(String entree);
+
+	/**
+	 * Méthode pour récupérer un nom en BD
+	 * @return
+	 */
+	public String recupererNom();
+	public String recupererNom2();
+	public String recupererNom3();
 }

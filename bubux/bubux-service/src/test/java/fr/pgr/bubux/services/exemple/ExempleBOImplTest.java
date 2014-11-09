@@ -17,7 +17,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:spring.xml")
+@ContextConfiguration(locations = "classpath:spring/spring-test-service.xml")
 @TransactionConfiguration(defaultRollback = true)
 public class ExempleBOImplTest {
 
@@ -39,4 +39,24 @@ public class ExempleBOImplTest {
 		assertEquals(entreeRetourne, sortie);
 	}
 
+	@Test
+	public void testRecupererNom() throws Exception {
+		String sortie = exempleBO.recupererNom();
+
+		assertEquals("lol", sortie);
+	}
+
+	@Test
+	public void testRecupererNom2() throws Exception {
+		String sortie = exempleBO.recupererNom2();
+
+		assertEquals("lol", sortie);
+	}
+
+//	@Test
+	public void testRecupererNom3() throws Exception {
+		String sortie = exempleBO.recupererNom3();
+
+		assertEquals("lol", sortie);
+	}
 }

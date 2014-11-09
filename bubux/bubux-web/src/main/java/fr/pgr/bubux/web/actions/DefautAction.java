@@ -21,7 +21,7 @@ import com.opensymphony.xwork2.Preparable;
  * @author Ibu
  *
  */
-public abstract class GenericAction extends ActionSupport implements Preparable {
+public abstract class DefautAction extends ActionSupport implements Preparable {
 	/**
 	 * serialVersionUID
 	 */
