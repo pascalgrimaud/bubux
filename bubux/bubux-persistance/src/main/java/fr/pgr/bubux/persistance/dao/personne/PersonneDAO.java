@@ -17,4 +17,5 @@ public interface PersonneDAO {
 	List<PersonneVO> listPersonnes();
 	List<PersonneVO> listPersonnes2();
 	List<PersonneVO> listPersonnes3();
+	void newPersonne(String nom, String prenom);
 }

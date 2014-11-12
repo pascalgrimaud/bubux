@@ -30,4 +30,5 @@ public interface ExempleBO {
 	public String recupererNom();
 	public String recupererNom2();
 	public String recupererNom3();
+	public void newPersonne(String nom, String prenom);
 }

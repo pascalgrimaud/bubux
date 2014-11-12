@@ -5,6 +5,8 @@ package fr.pgr.bubux.services.exemple;
 
 import static org.junit.Assert.assertEquals;
 
+import javax.transaction.Transactional;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,10 +55,17 @@ public class ExempleBOImplTest {
 		assertEquals("lol", sortie);
 	}
 
-//	@Test
+	@Test
 	public void testRecupererNom3() throws Exception {
 		String sortie = exempleBO.recupererNom3();
 
 		assertEquals("lol", sortie);
+	}
+	
+	@Transactional
+	@Test
+	public void testNewPersonne() throws Exception {
+		exempleBO.newPersonne("cccNom", "cccPrenom");
+		assert(true);
 	}
 }

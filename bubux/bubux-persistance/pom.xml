@@ -20,7 +20,7 @@
 			<artifactId>bubux-commun</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>

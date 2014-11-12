@@ -62,4 +62,8 @@ public class ExempleBOImpl implements ExempleBO {
 
 		return result;
 	}
+	
+	public void newPersonne(String nom, String prenom) {
+		personneDAO.newPersonne(nom, prenom);
+	}
 }
