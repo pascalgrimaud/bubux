@@ -66,6 +66,9 @@ public class ExempleBOImplTest {
 	@Test
 	public void testNewPersonne() throws Exception {
 		exempleBO.newPersonne("cccNom", "cccPrenom");
+		exempleBO.newPersonne("dddNom", "dddPrenom");
+		exempleBO.newPersonne("eeeNom", "eeePrenom");
+
 		assert(true);
 	}
 }

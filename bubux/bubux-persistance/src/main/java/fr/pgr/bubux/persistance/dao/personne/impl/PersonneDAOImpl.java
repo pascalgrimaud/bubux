@@ -66,8 +66,8 @@ public class PersonneDAOImpl extends DefautDAO implements PersonneDAO {
 	@Override
 	public List<PersonneVO> listPersonnes3() {
 //		currentSession().beginTransaction();
-		
-		final List list = getHibernateTemplate().find("from PersonneVO");
+		@SuppressWarnings("unchecked")
+		final List<PersonneVO> list = (List<PersonneVO>) getHibernateTemplate().find("from PersonneVO");
 		
 //		currentSession().getTransaction().commit();
 		return list;
@@ -79,9 +79,9 @@ public class PersonneDAOImpl extends DefautDAO implements PersonneDAO {
 		PersonneVO personne = new PersonneVO();
 		personne.setNom(nom);
 		personne.setPrenom(prenom);
-		personne.setdateNaiss(new Date());
+		personne.setDateNaiss(new Date());
 
-		getHibernateTemplate().save(personne);
+		getHibernateTemplate().saveOrUpdate(personne);
 	}
 
 }

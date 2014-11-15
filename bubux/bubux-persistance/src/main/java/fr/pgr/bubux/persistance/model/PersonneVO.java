@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * @author Ibu
@@ -35,7 +37,8 @@ public class PersonneVO implements Serializable {
 	@Column(name = "prenom")
 	private String prenom;
 
-	@Column(name = "dateNaiss")
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "dateNaiss", length = 7)
 	private Date dateNaiss;
 
 	public PersonneVO() {
@@ -97,7 +100,7 @@ public class PersonneVO implements Serializable {
 	/**
 	 * @return the dateNaiss
 	 */
-	public Date getdateNaiss() {
+	public Date getDateNaiss() {
 		return dateNaiss;
 	}
 
@@ -105,7 +108,7 @@ public class PersonneVO implements Serializable {
 	 * @param dateNaiss
 	 *            the dateNaiss to set
 	 */
-	public void setdateNaiss(Date dateNaiss) {
+	public void setDateNaiss(Date dateNaiss) {
 		this.dateNaiss = dateNaiss;
 	}
 
@@ -173,5 +176,4 @@ public class PersonneVO implements Serializable {
 			return false;
 		return true;
 	}
-
 }
