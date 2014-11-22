@@ -41,33 +41,21 @@ public class ExempleBOImplTest {
 		assertEquals(entreeRetourne, sortie);
 	}
 
+	@Transactional
 	@Test
-	public void testRecupererNom() throws Exception {
-		String sortie = exempleBO.recupererNom();
+	public void testRecupererCodeExemple() throws Exception {
+		exempleBO.creerExemple("TU01", "description TU01");
+		String sortie = exempleBO.recupererDescriptionExemple("TU01");
 
-		assertEquals("lol", sortie);
-	}
-
-	@Test
-	public void testRecupererNom2() throws Exception {
-		String sortie = exempleBO.recupererNom2();
-
-		assertEquals("lol", sortie);
-	}
-
-	@Test
-	public void testRecupererNom3() throws Exception {
-		String sortie = exempleBO.recupererNom3();
-
-		assertEquals("lol", sortie);
+		assertEquals("description TU01", sortie);
 	}
 	
 	@Transactional
 	@Test
-	public void testNewPersonne() throws Exception {
-		exempleBO.newPersonne("cccNom", "cccPrenom");
-		exempleBO.newPersonne("dddNom", "dddPrenom");
-		exempleBO.newPersonne("eeeNom", "eeePrenom");
+	public void testCreerExemple() throws Exception {
+		exempleBO.creerExemple("TU01", "description TU01");
+		exempleBO.creerExemple("TU02", "description TU02");
+		exempleBO.creerExemple("TU03", "description TU03");
 
 		assert(true);
 	}

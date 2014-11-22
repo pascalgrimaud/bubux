@@ -19,7 +19,7 @@
 			</list>
 		</property>
  -->		
-		<property name="packagesToScan" value="fr.pgr.bubux.persistance.model" />
+		<property name="packagesToScan" value="fr.pgr.bubux.commun.model" />
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>

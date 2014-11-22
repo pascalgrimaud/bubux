@@ -24,11 +24,18 @@ public interface ExempleBO {
 	public String retourneString(String entree);
 
 	/**
-	 * Méthode pour récupérer un nom en BD
+	 * Méthode pour récupérer la description d'un exemple par son code
+	 * 
+	 * @param code
 	 * @return
 	 */
-	public String recupererNom();
-	public String recupererNom2();
-	public String recupererNom3();
-	public void newPersonne(String nom, String prenom);
+	public String recupererDescriptionExemple(String code);
+
+	/**
+	 * Méthode pour créer un exemple
+	 * 
+	 * @param code
+	 * @param description
+	 */
+	public void creerExemple(String code, String description);
 }

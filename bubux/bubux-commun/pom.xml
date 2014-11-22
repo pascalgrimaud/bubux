@@ -8,9 +8,18 @@
 	</parent>
 	<artifactId>bubux-commun</artifactId>
 	<name>bubux-commun</name>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+	</dependencies>
+	
 	<build>
 		<finalName>bubux-commun</finalName>
 		<plugins>

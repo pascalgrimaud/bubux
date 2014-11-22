@@ -28,6 +28,11 @@ public abstract class DefautAction extends ActionSupport implements Preparable {
 	private static final long serialVersionUID = -2216786049713390397L;
 
 	/**
+	 * codeMenu
+	 */
+	protected int codeMenu;
+
+	/**
 	 * request
 	 */
 	protected HttpServletRequest request;
@@ -64,4 +69,20 @@ public abstract class DefautAction extends ActionSupport implements Preparable {
 	public Map<String, Object> getSessionMap() {
 		return ActionContext.getContext().getSession();
 	}
+
+	/**
+	 * @return the codeMenu
+	 */
+	public int getCodeMenu() {
+		return codeMenu;
+	}
+
+	/**
+	 * @param codeMenu
+	 *            the codeMenu to set
+	 */
+	public void setCodeMenu(int codeMenu) {
+		this.codeMenu = codeMenu;
+	}
+
 }

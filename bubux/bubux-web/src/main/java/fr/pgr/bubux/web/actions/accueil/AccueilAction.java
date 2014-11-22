@@ -29,11 +29,16 @@ public class AccueilAction extends DefautAction implements ServletRequestAware {
 
 	private String nom;
 
+	public AccueilAction() {
+		setCodeMenu(1);
+	}
+	
 	/**
 	 * Méthode par défaut
 	 */
 	@Override
 	public String execute() {
+		setCodeMenu(1);
 		return SUCCESS;
 	}
 
@@ -41,7 +46,8 @@ public class AccueilAction extends DefautAction implements ServletRequestAware {
 	 * Méthode par défaut
 	 */
 	public String testService() {
-		nom = exempleBO.recupererNom();
+		setCodeMenu(2);
+		nom = exempleBO.recupererDescriptionExemple("EX01");
 
 		return SUCCESS;
 	}
