@@ -4,6 +4,8 @@
 package fr.pgr.bubux.services.exemple;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import javax.transaction.Transactional;
 
@@ -13,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
+
+import fr.pgr.bubux.commun.model.ExempleVO;
 
 /**
  * @author Ibu
@@ -43,13 +47,13 @@ public class ExempleBOImplTest {
 
 	@Transactional
 	@Test
-	public void testRecupererCodeExemple() throws Exception {
+	public void testRecupererDescriptionExemple() throws Exception {
 		exempleBO.creerExemple("TU01", "description TU01");
 		String sortie = exempleBO.recupererDescriptionExemple("TU01");
 
 		assertEquals("description TU01", sortie);
 	}
-	
+
 	@Transactional
 	@Test
 	public void testCreerExemple() throws Exception {
@@ -58,5 +62,16 @@ public class ExempleBOImplTest {
 		exempleBO.creerExemple("TU03", "description TU03");
 
 		assert(true);
+	}
+
+	@Transactional
+	@Test
+	public void testModifierExemple() {
+		ExempleVO exemple = exempleBO.trouverExempleParCode("EX01");
+		assertNotNull(exemple);
+
+		exemple.setCode("TU01");
+		exemple.setDescription("modification exemple");
+		exempleBO.modifierExemple(exemple);
 	}
 }

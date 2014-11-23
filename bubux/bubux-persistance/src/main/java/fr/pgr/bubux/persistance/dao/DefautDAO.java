@@ -3,34 +3,21 @@
  */
 package fr.pgr.bubux.persistance.dao;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
+import java.io.Serializable;
 
 /**
  * @author Ibu
  *
  */
-public abstract class DefautDAO extends HibernateDaoSupport implements
-		ApplicationContextAware {
+public interface DefautDAO<T> {
 
-	private ApplicationContext context;
-    
-	@Autowired
-	public void init(final SessionFactory factory) {
-		setSessionFactory(factory);
-	}
+	T obtenir(Class<? extends T> uneClasse, Serializable uneCle);
 
-	@Override
-	public void setApplicationContext(final ApplicationContext ctx)
-			throws BeansException {
-		context = ctx;
-	}
+	void inserer(final T t);
 
-	public Object getBean(final String name) {
-		return context.getBean(name);
-	}
+	void modifier(final T t);
+
+	void mettreAJour(final T t);
+
+	void supprimer(final T t);
 }

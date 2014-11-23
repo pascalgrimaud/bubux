@@ -3,6 +3,8 @@
  */
 package fr.pgr.bubux.services.exemple;
 
+import fr.pgr.bubux.commun.model.ExempleVO;
+
 /**
  * @author Ibu
  *
@@ -38,4 +40,18 @@ public interface ExempleBO {
 	 * @param description
 	 */
 	public void creerExemple(String code, String description);
+
+	/**
+	 * Méthode pour trouver un exemple par code
+	 * 
+	 * @param code
+	 */
+	public ExempleVO trouverExempleParCode(String code);
+
+	/**
+	 * Méthode pour modifier un exemple
+	 * 
+	 * @param exemple
+	 */
+	public void modifierExemple(ExempleVO exemple);
 }

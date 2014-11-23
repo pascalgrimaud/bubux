@@ -45,10 +45,22 @@ public class ExempleVO implements Serializable {
 	private Date tstamp;
 
 	/**
-	 * 
+	 * Constructeur vide
 	 */
 	public ExempleVO() {
 		super();
+	}
+
+	/**
+	 * 
+	 * @param exemple
+	 */
+	public ExempleVO(ExempleVO exemple) {
+		super();
+		this.id = exemple.getId();
+		this.code = exemple.getCode();
+		this.description = exemple.getDescription();
+		this.tstamp = exemple.getTstamp();
 	}
 
 	/**
@@ -67,6 +79,20 @@ public class ExempleVO implements Serializable {
 		super();
 		this.code = code;
 		this.description = description;
+	}
+
+	/**
+	 * @param id
+	 * @param code
+	 * @param description
+	 * @param tstamp
+	 */
+	public ExempleVO(Long id, String code, String description, Date tstamp) {
+		super();
+		this.id = id;
+		this.code = code;
+		this.description = description;
+		this.tstamp = tstamp;
 	}
 
 	/**
@@ -181,6 +207,17 @@ public class ExempleVO implements Serializable {
 		} else if (!tstamp.equals(other.tstamp))
 			return false;
 		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ExempleVO [id=" + id + ", code=" + code + ", description="
+				+ description + ", tstamp=" + tstamp + "]";
 	}
 
 }

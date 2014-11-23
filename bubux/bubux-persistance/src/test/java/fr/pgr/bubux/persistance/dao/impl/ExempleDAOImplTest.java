@@ -2,11 +2,15 @@ package fr.pgr.bubux.persistance.dao.impl;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.SessionFactory;
+import org.hibernate.Session;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,34 +31,51 @@ public class ExempleDAOImplTest {
 
 	@Transactional
 	@Test
-	public void testCreerExemple() {
-		exempleDAO.creerExemple("EX01", "test exemple");
-		ExempleVO exemple = exempleDAO.trouveExempleParCode("EX01");
-
-		assertNotNull(exemple);
-		assertTrue("EX01".equals(exemple.getCode()));
-		assertTrue("test exemple".equals(exemple.getDescription()));
+	public void testObtenirExempleParCode() {
+		ExempleVO exemple = new ExempleVO("TU01", "test exemple 01");
+		exempleDAO.inserer(exemple);
+		
+		ExempleVO exempleResult = exempleDAO.obtenirExempleParCode("TU01");
+		
+		assertNotNull(exempleResult);
+		assertNotNull(exempleResult.getId());
+		assertEquals("TU01", exempleResult.getCode());
+		assertEquals("test exemple 01", exempleResult.getDescription());
+		assertNotNull(exempleResult.getTstamp());
 	}
 
 	@Transactional
 	@Test
-	public void testListerExemples() {
-		List<ExempleVO> listeAvant = exempleDAO.listerExemples();
+	public void testObtenirTousLesExemples() {
+		ExempleVO exemple1 = new ExempleVO("TU01", "test exemple 01");
+		exempleDAO.inserer(exemple1);
+		List<ExempleVO> listeAvant = exempleDAO.obtenirTousLesExemples();
 
-		exempleDAO.creerExemple("EX01", "test exemple");
+		ExempleVO exemple2 = new ExempleVO("TU02", "test exemple 02");
+		exempleDAO.inserer(exemple2);
+		List<ExempleVO> listeApres = exempleDAO.obtenirTousLesExemples();
 
-		List<ExempleVO> listeApres = exempleDAO.listerExemples();
+		assertNotNull(listeAvant);
+		assertNotNull(listeApres);
+		assertEquals(listeAvant.size() + 1, listeApres.size());
+	}
 
-		int nbExemplesAvant = 0;
-		if (listeAvant != null && !listeAvant.isEmpty()) {
-			nbExemplesAvant = listeAvant.size();
-		}
-
-		int nbExemplesApres = 0;
-		if (listeApres != null && !listeApres.isEmpty()) {
-			nbExemplesApres = listeApres.size();
-		}
-
-		assertTrue(nbExemplesAvant + 1 == nbExemplesApres);
+	@Transactional
+	@Test
+	public void testModifier() {
+		ExempleVO exemple1 = new ExempleVO("TU01", "test exemple 01");
+		exempleDAO.inserer(exemple1);
+		
+		ExempleVO exempleAModifier = exempleDAO.obtenirExempleParCode("TU01");
+		Long id = exempleAModifier.getId();
+		exempleAModifier.setCode("TU02");
+		exempleAModifier.setDescription("test modification 02");
+		exempleDAO.modifier(exempleAModifier);
+		
+		ExempleVO exempleResult = exempleDAO.obtenir(ExempleVO.class, id);
+		assertNotNull(exempleResult);
+		assertEquals("TU02",exempleResult.getCode());
+		assertEquals("test modification 02", exempleResult.getDescription());
+		System.out.println(exempleResult);
 	}
 }

@@ -11,10 +11,11 @@ import fr.pgr.bubux.commun.model.ExempleVO;
  * @author Ibu
  *
  */
-public interface ExempleDAO {
-	ExempleVO chargerExemple(int id);
-	ExempleVO trouveExempleParCode(String code);
-	List<ExempleVO> listerExemples();
+public interface ExempleDAO extends DefautDAO<ExempleVO> {
+
+	ExempleVO obtenirExempleParCode(String code);
+
+	List<ExempleVO> obtenirTousLesExemples();
+
 	void creerExemple(String code, String description);
-	void modifierExemple(ExempleVO exempleVO);
 }
