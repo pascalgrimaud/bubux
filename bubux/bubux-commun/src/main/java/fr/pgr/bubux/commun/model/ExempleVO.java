@@ -23,9 +23,7 @@ import javax.persistence.Version;
 @Table(name = "exemple")
 public class ExempleVO implements Serializable {
 
-	/**
-	 * serialVersionUID
-	 */
+	/** serialVersionUID */
 	private static final long serialVersionUID = -8369023859798525241L;
 
 	@Id

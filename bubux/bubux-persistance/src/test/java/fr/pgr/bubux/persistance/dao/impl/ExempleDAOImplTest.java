@@ -29,9 +29,24 @@ public class ExempleDAOImplTest {
 	@Test
 	public void testObtenirExempleParCode() {
 		ExempleVO exemple = new ExempleVO("TU01", "test exemple 01");
-		exempleDAO.inserer(exemple);
+		exempleDAO.save(exemple);
 		
 		ExempleVO exempleResult = exempleDAO.obtenirExempleParCode("TU01");
+		
+		assertNotNull(exempleResult);
+		assertNotNull(exempleResult.getId());
+		assertEquals("TU01", exempleResult.getCode());
+		assertEquals("test exemple 01", exempleResult.getDescription());
+		assertNotNull(exempleResult.getTstamp());
+	}
+	
+	@Transactional
+	@Test
+	public void testLoadByCode() {
+		ExempleVO exemple = new ExempleVO("TU01", "test exemple 01");
+		exempleDAO.save(exemple);
+		
+		ExempleVO exempleResult = exempleDAO.loadByCode("TU01");
 		
 		assertNotNull(exempleResult);
 		assertNotNull(exempleResult.getId());
@@ -42,14 +57,14 @@ public class ExempleDAOImplTest {
 
 	@Transactional
 	@Test
-	public void testObtenirTousLesExemples() {
+	public void testList() {
 		ExempleVO exemple1 = new ExempleVO("TU01", "test exemple 01");
-		exempleDAO.inserer(exemple1);
-		List<ExempleVO> listeAvant = exempleDAO.obtenirTousLesExemples();
+		exempleDAO.save(exemple1);
+		List<ExempleVO> listeAvant = exempleDAO.list();
 
 		ExempleVO exemple2 = new ExempleVO("TU02", "test exemple 02");
-		exempleDAO.inserer(exemple2);
-		List<ExempleVO> listeApres = exempleDAO.obtenirTousLesExemples();
+		exempleDAO.save(exemple2);
+		List<ExempleVO> listeApres = exempleDAO.list();
 
 		assertNotNull(listeAvant);
 		assertNotNull(listeApres);
@@ -58,17 +73,17 @@ public class ExempleDAOImplTest {
 
 	@Transactional
 	@Test
-	public void testModifier() {
+	public void testSaveAndUpdate() {
 		ExempleVO exemple1 = new ExempleVO("TU01", "test exemple 01");
-		exempleDAO.inserer(exemple1);
+		exempleDAO.save(exemple1);
 		
 		ExempleVO exempleAModifier = exempleDAO.obtenirExempleParCode("TU01");
 		Long id = exempleAModifier.getId();
 		exempleAModifier.setCode("TU02");
 		exempleAModifier.setDescription("test modification 02");
-		exempleDAO.modifier(exempleAModifier);
+		exempleDAO.save(exempleAModifier);
 		
-		ExempleVO exempleResult = exempleDAO.obtenir(ExempleVO.class, id);
+		ExempleVO exempleResult = exempleDAO.load(ExempleVO.class, id);
 		assertNotNull(exempleResult);
 		assertEquals("TU02",exempleResult.getCode());
 		assertEquals("test modification 02", exempleResult.getDescription());

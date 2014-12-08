@@ -3,9 +3,8 @@
  */
 package fr.pgr.bubux.persistance.dao;
 
-import java.util.List;
-
 import fr.pgr.bubux.commun.model.ExempleVO;
+import fr.pgr.bubux.persistance.dao.defaut.DefautDAO;
 
 /**
  * @author Ibu
@@ -14,8 +13,8 @@ import fr.pgr.bubux.commun.model.ExempleVO;
 public interface ExempleDAO extends DefautDAO<ExempleVO> {
 
 	ExempleVO obtenirExempleParCode(String code);
-
-	List<ExempleVO> obtenirTousLesExemples();
+	
+	ExempleVO loadByCode(String code);
 
 	void creerExemple(String code, String description);
 }

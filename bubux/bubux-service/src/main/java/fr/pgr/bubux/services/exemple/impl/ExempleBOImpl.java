@@ -31,7 +31,7 @@ public class ExempleBOImpl implements ExempleBO {
 	public String recupererDescriptionExemple(String code) {
 		String result = "";
 
-		ExempleVO exemple = exempleDAO.obtenirExempleParCode(code);
+		ExempleVO exemple = exempleDAO.loadByCode(code);
 		if (exemple != null) {
 			result = exemple.getDescription();
 		}
@@ -48,6 +48,6 @@ public class ExempleBOImpl implements ExempleBO {
 	}
 	
 	public void modifierExemple(ExempleVO exemple) {
-		exempleDAO.modifier(exemple);
+		exempleDAO.save(exemple);
 	}
 }
