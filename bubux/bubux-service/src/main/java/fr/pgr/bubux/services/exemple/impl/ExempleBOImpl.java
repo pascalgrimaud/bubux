@@ -18,7 +18,7 @@ import fr.pgr.bubux.services.exemple.ExempleBO;
 public class ExempleBOImpl implements ExempleBO {
 
 	@Autowired
-	ExempleDAO exempleDAO;
+	private ExempleDAO exempleDAO;
 
 	public String recupererNomTest() {
 		return "coucou";

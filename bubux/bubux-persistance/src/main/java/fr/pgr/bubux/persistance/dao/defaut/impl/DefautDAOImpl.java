@@ -51,8 +51,8 @@ public abstract class DefautDAOImpl<T> extends HibernateDaoSupport implements
             return null;
         }
         return liste.get(0);
-    }
-    
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public Class<T> getVOClass() {

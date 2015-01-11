@@ -20,7 +20,7 @@ import javax.persistence.Version;
  *
  */
 @Entity
-@Table(name = "exemple")
+@Table(name = "EXEMPLE")
 public class ExempleVO implements Serializable {
 
 	/** serialVersionUID */
